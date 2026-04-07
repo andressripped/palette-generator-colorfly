@@ -99,3 +99,30 @@ body {
     pointer-events: none;
     color: var(--text-secondary)
 }
+
+.btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border-radius: var(--radius-full);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary{
+    background-color: var(--accent-primary);
+    color: #000;
+}
+
+.btn-primary:hover{
+    background-color: var(--accent-primaty-hover);
+    transform: scale(1.05);
+}
+
+.btn-primary:active{
+    transform: scale(0.95);
+}
