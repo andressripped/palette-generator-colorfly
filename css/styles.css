@@ -5,6 +5,12 @@
     --text-secondary: #adaaaa;
     --font-headline: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Manrope', sans-serif;
+    --accent-primary: #7c3aed;
+    --accent-primaty-hover: #6d28d9;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.76rem;
+    --radius-full: 9999px;
+    --transition: 0.3s ease;
 }
 
 * {margin: 0; padding: 0; box-sizing: border-box;}
