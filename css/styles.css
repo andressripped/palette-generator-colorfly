@@ -1,0 +1,11 @@
+:root {
+    --bg-surface: #0e0e0e;
+    --bg-surface-container: #1a1919;
+    --text-primary: #ffffff;
+    --text-secondary: #adaaaa;
+    --font-headline: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+}
+
+* {margin: 0; padding: 0; box-sizing: border-box;}
+
