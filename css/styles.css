@@ -70,3 +70,32 @@ body {
     color: var(--text-secondary);
     text-transform: uppercase;
 }
+
+.select-wrapper{
+    position: relative;
+}
+
+.size-select{
+    appearance: none;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.75rem 3rem 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition);
+}
+
+.size-select:focus {
+    box-shadow: 0 0 0 2px var(--accent-primary); 
+}
+
+.select-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-secondary)
+}
