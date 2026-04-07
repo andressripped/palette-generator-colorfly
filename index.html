@@ -16,8 +16,28 @@
         <h1 class = "title">Generador de paletas</h1>
         <p class = "subtitle">Descubre y crea combinaciones perfectas.</p>
     </header>
+
     <main class = "main-content">
-        <section class = "controls-section"></section>
+        <section class = "controls-section">
+            <div class = "controls-container">
+                <div class = "input-group">
+                    <label for="palette-size" class = "label">Cantidad:</label>
+                    <div class = "select-wrapper">
+                        <select id="palette-size" class="size-select">
+                            <option value="6">6 Colores</option>
+                            <option value="8">8 Colores</option>
+                            <option value="9">9 Colores</option>
+                        </select>
+                        <span class = "material-symbols-outlined select-icon">expand_more</span>
+                    </div>
+                </div>
+
+                <button id = "generate-btn" class="btn btn-primary">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                    Generar Paleta
+                </button>
+            </div>
+        </section>
         <section id = "palette-container" class = "palette-container"></section>
     </main>
     <script src="./js/main.js"></script>
