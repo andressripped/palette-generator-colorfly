@@ -55,11 +55,13 @@ function createCard(colorObj) {
         e.stopPropagation();
         const textToCopy = formatSpan.textContent;
         navigator.clipboard.writeText(textToCopy).then(() => {
-            copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">check</span>';
-
+            copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">check</span>';            
             setTimeout(() => {
                 copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">content_copy</span>';
             }, 1500);
+        })
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            showToolTip(textToCopy, copyBtn);
         })
     })
     singleRow.appendChild(formatSpan);
@@ -90,6 +92,19 @@ function updateFormats() {
     })
 }
 formatSelect.addEventListener('change', updateFormats);
+
+function showToolTip(message, targetElement) {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'copy-tooltip';
+    tooltip.textContent= `¡Copiado!`
+
+    targetElement.appendChild(tooltip);
+
+    setTimeout(() => {
+        tooltip.classList.add('hide');
+        setTimeout(() => tooltip.remove(), 300);
+    }, 1500);
+}
 
 generateBtn.addEventListener('click', () => {
     const size = parseInt(paletteSizeSelect.value);
