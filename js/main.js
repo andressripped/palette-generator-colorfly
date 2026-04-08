@@ -33,7 +33,19 @@ function createCard(colorObj) {
     colorArea.className = 'color-area';
     colorArea.style.backgroundColor = hslString;
 
+    const cardInfo = document.createElement('div');
+    cardInfo.className = 'card-info';
+
+    const singleRow = document.createElement('div');
+    singleRow.className = 'code-row';
+
+    const formatSpan = document.createElement('span');
+    formatSpan.className = 'format-text';
+    formatSpan.textContent = card.dataset['hex'];
+    
     card.appendChild(colorArea);
+    card.appendChild(cardInfo);
+    
     return card;
 }
 
