@@ -183,3 +183,17 @@ body {
     font-family: var(--font-headline);
     font-weight: 800;
 }
+
+.copyBtn {
+    background: transparent;
+    border: none;
+    color: #adaaaa;
+    cursor: pointer;
+    display: flex;
+    transition: 0.3s;
+}
+
+.copyBtn:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
