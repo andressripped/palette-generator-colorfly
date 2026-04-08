@@ -1,6 +1,7 @@
 const generateBtn = document.getElementById('generate-btn');
 const paletteSizeSelect = document.getElementById('palette-size');
 const paletteContainer = document.getElementById('palette-container');
+const formatSelect = document.getElementById('format-select')
 
 function generateRandomHSL() {
     const hue = Math.floor(Math.random() * 361);
@@ -41,11 +42,16 @@ function createCard(colorObj) {
 
     const formatSpan = document.createElement('span');
     formatSpan.className = 'format-text';
-    formatSpan.textContent = card.dataset['hex'];
+
+    const currentFormat = formatSelect.value;
+    formatSpan.textContent = card.dataset[currentFormat];
     
+    singleRow.appendChild(formatSpan);
+    cardInfo.appendChild(singleRow);
+
     card.appendChild(colorArea);
     card.appendChild(cardInfo);
-    
+
     return card;
 }
 
@@ -57,6 +63,16 @@ function renderPalette(size) {
         paletteContainer.appendChild(card);
     }
 }
+
+function updateFormats() {
+    const format = formatSelect.value;
+    const cards = document.querySelectorAll('.color-card');
+    cards.forEach(card => {
+        const span = card.querySelector('.format-text');
+        span.textContent = card.dataset[format];
+    })
+}
+formatSelect.addEventListener('change', updateFormats);
 
 generateBtn.addEventListener('click', () => {
     const size = parseInt(paletteSizeSelect.value);
