@@ -46,7 +46,24 @@ function createCard(colorObj) {
     const currentFormat = formatSelect.value;
     formatSpan.textContent = card.dataset[currentFormat];
     
+    const copyBtn = document.createElement('button')
+    copyBtn.className = 'copyBtn'
+
+    copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size 18px;">content_copy</span>'
+
+    copyBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const textToCopy = formatSpan.textContent;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">check</span>';
+
+            setTimeout(() => {
+                copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">content_copy</span>';
+            }, 1500);
+        })
+    })
     singleRow.appendChild(formatSpan);
+    singleRow.appendChild(copyBtn);
     cardInfo.appendChild(singleRow);
 
     card.appendChild(colorArea);
