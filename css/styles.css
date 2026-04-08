@@ -137,6 +137,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  padding-top: 1.8rem;
   padding-bottom: 4rem;
 }
 
