@@ -49,19 +49,18 @@ function createCard(colorObj) {
     const copyBtn = document.createElement('button')
     copyBtn.className = 'copyBtn'
 
-    copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size 18px;">content_copy</span>'
+    copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">content_copy</span>'
 
     copyBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         const textToCopy = formatSpan.textContent;
+
         navigator.clipboard.writeText(textToCopy).then(() => {
-            copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">check</span>';            
+            copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">check</span>';  
+            showToolTip(textToCopy, copyBtn);          
             setTimeout(() => {
                 copyBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 18px;">content_copy</span>';
             }, 1500);
-        })
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            showToolTip(textToCopy, copyBtn);
         })
     })
     singleRow.appendChild(formatSpan);
