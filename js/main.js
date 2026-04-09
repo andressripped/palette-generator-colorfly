@@ -63,6 +63,23 @@ function createCard(colorObj) {
             }, 1500);
         })
     })
+
+    const lockBtn = document.createElement('button')
+    lockBtn.className = 'lock-btn'
+    lockBtn.innerHTML = '<span class="material-symbols-outlined text-sm">lock_open</span>';
+
+    lockBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (card.dataset.locked === 'true') {
+            card.dataset.locked = 'false';
+            lockBtn.innerHTML = '<span class="material-symbols-outlined text-sm">lock_open</span>';
+        } else {
+            card.dataset.locked = 'true';
+            lockBtn.innerHTML = '<span class="material-symbols-outlined text-sm">lock</span>';
+        } 
+    });
+    colorArea.appendChild(lockBtn);
+
     singleRow.appendChild(formatSpan);
     singleRow.appendChild(copyBtn);
     cardInfo.appendChild(singleRow);
@@ -74,8 +91,14 @@ function createCard(colorObj) {
 }
 
 function renderPalette(size) {
+    const existingCards = Array.from(paletteContainer.children);
     paletteContainer.innerHTML = '';
     for (let i = 0; i < size; i++) {
+        if (existingCards[i] && existingCards[i].dataset.locked === 'true') {
+            paletteContainer.appendChild(existingCards[i]);
+            continue;
+        }
+
         const colorObj = generateRandomHSL();
         const card = createCard(colorObj);
         paletteContainer.appendChild(card);
