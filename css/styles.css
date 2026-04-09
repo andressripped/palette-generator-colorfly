@@ -259,3 +259,30 @@ body {
         transform: translate(-50%, 8px);
     }
 }
+
+.lock-btn {
+    position: absolute; top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+    opacity: 0;
+}
+
+.color-card:hover .lock-btn { 
+    opacity: 1;
+}
+.color-card[data-locked="true"] .lock-btn { 
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.8);
+}
+.lock-btn:hover { 
+    background: rgba(0, 0, 0, 0.8);
+    transform:
+    scale(1.1);
+}
