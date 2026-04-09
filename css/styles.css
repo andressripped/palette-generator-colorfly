@@ -148,9 +148,10 @@ body {
   flex-direction: column;
   min-height: 400px;
   width: 200px;
-  overflow: hidden;
+  overflow: visible;
   cursor: pointer;
   transition: transform 0.3s ease;
+  position: relative;
 }
 
 .color-card:hover {
@@ -159,6 +160,7 @@ body {
 
 .color-area {
   flex: 1;
+  border-radius: 0.75rem 0.75rem 0 0;
   transition: background-color 0.3s ease;
   border-bottom: 1px solid #0e0e0e;
 }
@@ -168,6 +170,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--bg-surface-elevated);
+    border-radius:0 0 0.75rem 0.75rem;
 }
 
 .code-row {
